@@ -7,6 +7,8 @@ int main()
 	sf::RenderWindow window( sf::VideoMode( { 800, 800 } ), "SFML works!" );
 	sf::CircleShape shape( 40.f );
 	shape.setFillColor( sf::Color::Green );
+	const sf::Texture texture("../../rat2.jpg");
+	sf::Sprite sprite(texture);
 
 	while ( window.isOpen() )
 	{
@@ -17,17 +19,17 @@ int main()
 		}
 
 		window.clear();
-		window.draw( shape );
+		window.draw( sprite );
 		window.display();
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
-			shape.move({0.f,-1.f});
+			sprite.move({0.f,-1.f});
 		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
-			shape.move({0.f,1.f});
+			sprite.move({0.f,1.f});
 		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-			shape.move({-1.f,0.f});
+			sprite.move({-1.f,0.f});
 		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-			shape.move({1.f,0.f});
+			sprite.move({1.f,0.f});
 		}
 	}
 	std::cout << "Hello word!" << '\n';
