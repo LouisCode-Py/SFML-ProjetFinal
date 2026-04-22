@@ -9,6 +9,7 @@ int main()
 	shape.setFillColor( sf::Color::Green );
 	const sf::Texture texture("../../rat2.jpg");
 	sf::Sprite sprite(texture);
+	sf::Angle angle = sf::degrees(90);
 
 	while ( window.isOpen() )
 	{
@@ -30,6 +31,8 @@ int main()
 			sprite.move({-1.f,0.f});
 		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
 			sprite.move({1.f,0.f});
+		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::R)) {
+			sprite.setRotation(sprite.getRotation()+angle);
 		}
 	}
 	std::cout << "Hello word!" << '\n';
