@@ -2,10 +2,10 @@
 #include <iostream>
 #include "../cmake-build-debug/_deps/sfml-src/src/SFML/Window/InputImpl.hpp"
 
-int main()
-{
+int main() {
 	sf::RenderWindow window( sf::VideoMode( { 800, 800 } ), "SFML works!" );
 	sf::CircleShape shape( 40.f );
+	shape.setPosition({400,400});
 	shape.setFillColor( sf::Color::Green );
 	const sf::Texture texture("../../rat2.jpg");
 	sf::Sprite sprite(texture);
@@ -21,16 +21,17 @@ int main()
 
 		window.clear();
 		window.draw( sprite );
+		window.draw( shape );
 		window.display();
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
-			sprite.move({0.f,-1.f});
+			sprite.move({0.f,-0.1});
 		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
-			sprite.move({0.f,1.f});
+			sprite.move({0.f,0.1});
 		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-			sprite.move({-1.f,0.f});
+			sprite.move({-0.1,0.f});
 		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-			sprite.move({1.f,0.f});
+			sprite.move({0.1,0.f});
 		} else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::R)) {
 			sprite.setRotation(sprite.getRotation()+angle);
 		}
